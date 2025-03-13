@@ -1,4 +1,4 @@
-package com.example.cacharrito.modelo;
+package com.example.cacharrito.modelo1;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

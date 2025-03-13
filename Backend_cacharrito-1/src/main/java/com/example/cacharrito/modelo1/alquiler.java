@@ -1,4 +1,4 @@
-package com.example.cacharrito.modelo;
+package com.example.cacharrito.modelo1;
 
 
 import java.util.Date;
@@ -28,15 +28,15 @@ public class alquiler {
 	private Long id_Alquiler;
 	
 	@ManyToOne()
-	@JoinColumn(name="id_Usuario",referencedColumnName="identificacion")
+	@JoinColumn(name="id_Usuario",referencedColumnName="id_Usuario")
 	private usuario id_Usuario;
 	
 	@ManyToOne()
-	@JoinColumn(name="id_Vehiculo",referencedColumnName="identificacion")
+	@JoinColumn(name="id_Vehiculo",referencedColumnName="id_Vehiculo")
 	private vehiculo id_vehiculo;
 	
 	@ManyToOne()
-	@JoinColumn(name="id_Admin",referencedColumnName="identificacion")
+	@JoinColumn(name="id_Admin",referencedColumnName="id_Admin")
 	private administrador id_Admin;
 	
 	@Temporal(TemporalType.DATE) // para determinar si usa horas o fechas o ambas
