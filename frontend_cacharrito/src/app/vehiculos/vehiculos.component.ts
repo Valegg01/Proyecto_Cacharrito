@@ -18,24 +18,22 @@ export class VehiculosComponent {
 
   vehiculo!:Vehiculo[];
 
+ 
+
   buscar_tipo(){
 
     this.serveh.buscar_tipo(this.Tipo).subscribe(dato=>{
+    
+      this.vehiculo=dato;
 
+      if(this.vehiculo.length == 0){
 
-      if(dato ==null){
+        alert("no hay datos para mostrar")
 
-        alert("no hay datos disponibles")
-
-
-      }else{
-
-        console.log(dato)
-        this.vehiculo=dato;
 
       }
     
-
+      
     },error=>{
       alert("error al procesar la solicitud")
     })
