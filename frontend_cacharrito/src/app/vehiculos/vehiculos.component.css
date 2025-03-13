@@ -1,0 +1,9 @@
+table{
+    width: 50%;
+    float: right;
+}
+
+form{
+    width: 50%;
+    float: left;
+}
