@@ -15,10 +15,19 @@ public class vehiculo_Controlador {
 	
 	private vehiculo_Repositorio RepVehiculo;
 	
+	// funcion para buscar vehiculos disponibles y no disponibles
 	@PostMapping("/filtro")
 	public List<vehiculo> filtroVheiculo(@RequestParam String filtro){
 		
 		return this.RepVehiculo.findByestado(filtro);
+	}
+	
+	
+	// funcion para buscar por tipo de vehiculo
+	@PostMapping("/Tipo")
+	public List<vehiculo> TipoVheiculo(@RequestParam String Tipo){
+		
+		return this.RepVehiculo.findBytipo(Tipo);
 	}
 
 }
