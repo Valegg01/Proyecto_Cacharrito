@@ -23,21 +23,22 @@ public class admin_controlador {
 	
 	
 	@GetMapping("/loguinAdmin")
-	public boolean loguinadmin (
-			@RequestParam String usuario,
-			@RequestParam String Password) {
-		
-		administrador encontrado = this.repadmin.findByUsuario(usuario).get();
-		
-		if(encontrado.getUsuario().equals(usuario) && encontrado.getPassword().equals(Password)) {
-			
-			return true;
-			
-		}else {
-			
-			return false;
-			
-		}
+	public boolean loguinadmin(
+	        @RequestParam String usuario,
+	        @RequestParam String Password) {
+	    try {
+	        administrador encontrado = this.repadmin.findByUsuario(usuario).orElse(null);
+	        
+	        if (encontrado.getUsuario().equals(usuario) && encontrado.getPassword().equals(Password)) {
+	            return true;
+	        } else {
+	            return false;
+	        }
+	    } catch (Exception e) {
+	        //System.err.println("Error al intentar iniciar sesión: " + e.getMessage());
+	        return false;
+	    }
 	}
+	
 
 }

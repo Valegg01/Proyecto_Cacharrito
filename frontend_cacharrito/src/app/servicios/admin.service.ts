@@ -9,9 +9,9 @@ export class AdminService {
 
   constructor(private httpClient: HttpClient) { }
 
-  URL ="http://localhost:8080/admin/"
+  URL ="http://localhost:8080/admin"
 
   buscar_tipo(usuario:string, clave:string ):Observable<any>{
-      return this.httpClient.get(`${this.URL}?usuario=${usuario}&Password=${clave}`)
+      return this.httpClient.get(`${this.URL}/loguinAdmin?usuario=${usuario}&Password=${clave}`)
     }
 }
