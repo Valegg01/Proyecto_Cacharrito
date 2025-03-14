@@ -30,11 +30,11 @@ public class alquiler_Controlador {
 		alquilerRepositorio.save(alquilerr);
 	}
 	
-	@PostMapping("/solicitarAlquiler")
+	/*@PostMapping("/solicitarAlquiler")
 	public List<alquiler>consultarAlquileresPorUsuario(@RequestBody Map<String, Long> request){
-		Long id_Usuario = request.get("id_Usuario");
-		return alquilerRepositorio.findByIdUsuario(id_Usuario);
-	}
+		usuario idUsuario = request.get("idUsuario");
+		return alquilerRepositorio.findByid_Usuario(idUsuario);
+	}*/
 	
 	@GetMapping("/listaDeAlquileres")
 	public List<alquiler>listarAlquileres(){

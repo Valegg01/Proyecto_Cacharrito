@@ -29,13 +29,13 @@ public class usuario_Controlador {
 	}
 	
 	@GetMapping("/buscarPorIdentificacion")
-	public usuario buscarPorIdentificacion(@RequestParam Long num_Iden) {
-		return usuarioRepositorio.findByNumIden(num_Iden).orElse(null);
+	public usuario buscarPorIdentificacion(@RequestParam Long numIden) {
+		return usuarioRepositorio.findByNumIden(numIden).orElse(null);
 	}
 	
 	@GetMapping("/buscarPorId")
-	public usuario buscarPorId(@RequestParam Long id_Usuario) {
-		return usuarioRepositorio.findById(id_Usuario).orElse(null);
+	public usuario buscarPorId(@RequestParam Long idUsuario) {
+		return usuarioRepositorio.findById(idUsuario).orElse(null);
 	}
 	
 	@GetMapping("/listaDeUsuarios")

@@ -10,9 +10,9 @@ public interface usuario_Repositorio  extends JpaRepository <usuario, Long> {
 	
 Optional<usuario>findByCorreo(String correo);
 
-Optional<usuario>findByNumIden(Long num_Iden);
+Optional<usuario>findByNumIden(Long numIden);
 
-Optional<usuario>findById(Long id_Usuario);
+Optional<usuario>findById(Long idUsuario);
 
 
 }
