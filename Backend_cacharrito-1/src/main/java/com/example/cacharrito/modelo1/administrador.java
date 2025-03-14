@@ -7,16 +7,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity  /*esto establece la entidad en la base de datos*/
-@Table(name ="administrador") // nombre de la tabla en la base de datos
+@Entity  
+@Table(name ="administrador") 
 
 public class administrador {
 	
-	@Id /* esto es para identificar el id como llave principal*/
+	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_Admin")
-	/* Long es para definir que es un dato largo*/
-	private Long id_Admin;
+	private Long idAdmin;
 	
 	@Column(name="usuario", nullable = false)
 	private String usuario;
@@ -40,12 +39,12 @@ public class administrador {
 
 
 	public Long getId_Admin() {
-		return id_Admin;
+		return idAdmin;
 	}
 
 
 	public void setId_Admin(Long id_Admin) {
-		this.id_Admin = id_Admin;
+		this.idAdmin = id_Admin;
 	}
 
 

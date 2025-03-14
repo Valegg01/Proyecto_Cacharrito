@@ -21,42 +21,41 @@ import jakarta.persistence.TemporalType;
 
 public class alquiler {
 	
-	@Id /* esto es para identificar el id como llave principal*/
+	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_Alquiler")
-	/* Long es para definir que es un dato largo*/
-	private Long id_Alquiler;
+	private Long idAlquiler;
 	
 	@ManyToOne()
 	@JoinColumn(name="id_Usuario",referencedColumnName="id_Usuario")
-	private usuario id_Usuario;
+	private usuario idUsuario;
 	
 	@ManyToOne()
 	@JoinColumn(name="id_Vehiculo",referencedColumnName="id_Vehiculo")
-	private vehiculo id_vehiculo;
+	private vehiculo idVehiculo;
 	
 	@ManyToOne()
 	@JoinColumn(name="id_Admin",referencedColumnName="id_Admin")
-	private administrador id_Admin;
+	private administrador idAdmin;
 	
 	@Temporal(TemporalType.DATE) // para determinar si usa horas o fechas o ambas
 	//@DateTimeFormat(iso = ISO.DATE) // para guardar solo la fecha
 	@DateTimeFormat(pattern = "dd/MM/yyy") // lo mismo pero se cambia el formato
 	@Column(name="Fecha_Inicio", nullable = false )
-	private Date Fecha_Inicio;
+	private Date fechaInicio;
 	
 	@Temporal(TemporalType.DATE) // para determinar si usa horas o fechas o ambas
 	//@DateTimeFormat(iso = ISO.DATE) // para guardar solo la fecha
 	@DateTimeFormat(pattern = "dd/MM/yyy") // lo mismo pero se cambia el formato
 	@Column(name="fecha_Fin", nullable = false )
-	private Date fecha_Fin;
+	private Date fechaFin;
 	
 	@Column(name="estado", nullable = false)
 	private String estado;
 
 	
 	@Column(name="valor_Total", nullable = false)
-	private String valor_Total;
+	private String valorTotal;
 	
 	public alquiler() {
 		super();
@@ -66,61 +65,61 @@ public class alquiler {
 	public alquiler(usuario id_Usuario, vehiculo id_vehiculo, administrador id_Admin, Date fecha_Inicio, Date fecha_Fin,
 			String estado, String valor_Total) {
 		super();
-		this.id_Usuario = id_Usuario;
-		this.id_vehiculo = id_vehiculo;
-		this.id_Admin = id_Admin;
-		Fecha_Inicio = fecha_Inicio;
-		this.fecha_Fin = fecha_Fin;
+		this.idUsuario = id_Usuario;
+		this.idVehiculo = id_vehiculo;
+		this.idAdmin = id_Admin;
+		fechaInicio = fecha_Inicio;
+		this.fechaFin = fecha_Fin;
 		this.estado = estado;
-		this.valor_Total = valor_Total;
+		this.valorTotal = valor_Total;
 	}
 
 	public Long getId_Alquiler() {
-		return id_Alquiler;
+		return idAlquiler;
 	}
 
 	public void setId_Alquiler(Long id_Alquiler) {
-		this.id_Alquiler = id_Alquiler;
+		this.idAlquiler = id_Alquiler;
 	}
 
 	public usuario getId_Usuario() {
-		return id_Usuario;
+		return idUsuario;
 	}
 
 	public void setId_Usuario(usuario id_Usuario) {
-		this.id_Usuario = id_Usuario;
+		this.idUsuario = id_Usuario;
 	}
 
 	public vehiculo getId_vehiculo() {
-		return id_vehiculo;
+		return idVehiculo;
 	}
 
 	public void setId_vehiculo(vehiculo id_vehiculo) {
-		this.id_vehiculo = id_vehiculo;
+		this.idVehiculo = id_vehiculo;
 	}
 
 	public administrador getId_Admin() {
-		return id_Admin;
+		return idAdmin;
 	}
 
 	public void setId_Admin(administrador id_Admin) {
-		this.id_Admin = id_Admin;
+		this.idAdmin = id_Admin;
 	}
 
 	public Date getFecha_Inicio() {
-		return Fecha_Inicio;
+		return fechaInicio;
 	}
 
 	public void setFecha_Inicio(Date fecha_Inicio) {
-		Fecha_Inicio = fecha_Inicio;
+		fechaInicio = fecha_Inicio;
 	}
 
 	public Date getFecha_Fin() {
-		return fecha_Fin;
+		return fechaFin;
 	}
 
 	public void setFecha_Fin(Date fecha_Fin) {
-		this.fecha_Fin = fecha_Fin;
+		this.fechaFin = fecha_Fin;
 	}
 
 	public String getEstado() {
@@ -132,11 +131,11 @@ public class alquiler {
 	}
 
 	public String getValor_Total() {
-		return valor_Total;
+		return valorTotal;
 	}
 
 	public void setValor_Total(String valor_Total) {
-		this.valor_Total = valor_Total;
+		this.valorTotal = valor_Total;
 	}
 
 	

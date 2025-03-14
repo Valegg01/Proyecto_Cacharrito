@@ -11,18 +11,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity  /*esto establece la entidad en la base de datos*/
-@Table(name ="vehiculo") // nombre de la tabla en la base de datos
-
+@Entity 
+@Table(name ="vehiculo") 
 public class vehiculo {
 	
-	
-	
-	@Id /* esto es para identificar el id como llave principal*/
+	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_Vehiculo")
-	/* Long es para definir que es un dato largo*/
-	private Long id_Vehiculo;
+	private Long idVehiculo;
 	
 	@Column(name="tipo", nullable = false)
 	private String tipo;
@@ -34,7 +30,7 @@ public class vehiculo {
 	@Column(name="color",nullable = false)
 	private String color;
 	
-	@Column(name="estado", nullable = false, unique = true)
+	@Column(name="estado", nullable = false)
 	private String estado;
 
 	public vehiculo() {
@@ -44,7 +40,7 @@ public class vehiculo {
 
 	public vehiculo(Long id_Vehiculo, String tipo, String placa, String color, String estado) {
 		super();
-		this.id_Vehiculo = id_Vehiculo;
+		this.idVehiculo = id_Vehiculo;
 		this.tipo = tipo;
 		this.placa = placa;
 		this.color = color;
@@ -52,11 +48,11 @@ public class vehiculo {
 	}
 
 	public Long getId_Vehiculo() {
-		return id_Vehiculo;
+		return idVehiculo;
 	}
 
 	public void setId_Vehiculo(Long id_Vehiculo) {
-		this.id_Vehiculo = id_Vehiculo;
+		this.idVehiculo = id_Vehiculo;
 	}
 
 	public String getTipo() {
