@@ -30,7 +30,6 @@ export class VehiculosComponent {
 
         alert("no hay datos para mostrar")
 
-
       }
     
       
