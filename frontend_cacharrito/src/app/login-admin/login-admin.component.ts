@@ -19,8 +19,11 @@ export class LoginAdminComponent {
 
     this.servicio.buscar_tipo(this.usuario,this.contra).subscribe(dato =>{
 
-      if(dato==true){
+      console.log(dato)
+      if(dato===true){
         alert("bienvenido")
+
+        window.location.replace("/admin")
       }else{
         alert("usuario o contraseña incorrecta")
       }

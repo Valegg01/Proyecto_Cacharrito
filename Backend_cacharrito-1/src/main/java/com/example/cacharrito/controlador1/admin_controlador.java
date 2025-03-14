@@ -29,7 +29,7 @@ public class admin_controlador {
 	    try {
 	        administrador encontrado = this.repadmin.findByUsuario(usuario).orElse(null);
 	        
-	        if (encontrado.getUsuario().equals(usuario) && encontrado.getPassword().equals(Password)) {
+	        if (encontrado != null && encontrado.getUsuario().equals(usuario) && encontrado.getPassword().equals(Password)) {
 	            return true;
 	        } else {
 	            return false;
