@@ -30,7 +30,7 @@ public class vehiculo {
 	@Column(name="color",nullable = false)
 	private String color;
 	
-	@Column(name="estado", nullable = false, unique = true)
+	@Column(name="estado", nullable = false)
 	private String estado;
 
 	public vehiculo() {
