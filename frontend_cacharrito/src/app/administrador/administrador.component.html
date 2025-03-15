@@ -1,1 +1,82 @@
-<p>administrador works!</p>
+
+<div id="opciones">
+
+    <button type="button" (click)="ver_vehiculo()" class="buttonnav">ver vehiculos</button>
+    <button type="button" (click)="ver_alquiler()" class="buttonnav">ver alquileres</button>
+ 
+
+</div>
+
+<div class="contenido alquiler" id="alquiler">
+
+    <h2>Alquileres pendientes por entregar</h2>
+
+    
+  <div class="input-group mb-3" id="inputs">
+    <input type="text" class="form-control" placeholder="Buscar alquiler" aria-label="Recipient's username" aria-describedby="button-addon2">
+    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+  </div>
+
+
+    <table class="table tabulacion" >
+        <thead class="table-dark">
+          <tr>
+            <td>id alquiler</td>
+            <td>Solicitante</td>
+            <td>vehiculo</td>
+            <td>Estado</td>
+            <td>Acciones</td>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+
+</div>
+
+
+
+<div class="contenido vehiculo" id="vehiculo">
+
+    <h2>Lista de vehiculos</h2>
+
+    <div class="input-group" id="inputs">
+        
+
+        <label class="input-group-text" for="inputGroupSelect01">Tipo vehiculo</label>
+        <select class="form-select" id="">
+          <option selected>Seleccionar</option>
+          <option value="Automovil">Automovil</option>
+          <option value="Camioneta">Camioneta</option>
+          <option value="Campero">Campero</option>
+          <option value="Microbus">Microbus</option>
+          <option value="Motocicleta">Motocicleta</option>
+        </select>
+        
+        <label class="input-group-text" for="inputGroupSelect01">Disponibilidad</label>
+        <select class="form-select" id="">
+          <option selected>Seleccionar</option>
+          <option value="Disponible">Disponible</option>
+          <option value="Ocupado">Ocupado</option>
+        </select>
+        
+        <button class="btn btn-outline-secondary" type="button">Buscar</button>
+
+    </div>
+
+
+    <table class="table tabulacion">
+        <thead class="table-dark">
+          <tr>
+            <td>Placa</td>
+            <td>Color</td>
+            <td>Estado</td>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+</div>
+
