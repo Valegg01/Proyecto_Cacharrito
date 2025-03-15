@@ -29,6 +29,7 @@
           </tr>
         </thead>
         <tbody>
+            
         </tbody>
     </table>
 
@@ -45,7 +46,7 @@
         
 
         <label class="input-group-text" for="inputGroupSelect01">Tipo vehiculo</label>
-        <select class="form-select" id="">
+        <select class="form-select" id="" [(ngModel)]="tipo">
           <option selected>Seleccionar</option>
           <option value="Automovil">Automovil</option>
           <option value="Camioneta">Camioneta</option>
@@ -55,13 +56,13 @@
         </select>
         
         <label class="input-group-text" for="inputGroupSelect01">Disponibilidad</label>
-        <select class="form-select" id="">
+        <select class="form-select" id="" [(ngModel)]="estado">
           <option selected>Seleccionar</option>
           <option value="Disponible">Disponible</option>
           <option value="Ocupado">Ocupado</option>
         </select>
         
-        <button class="btn btn-outline-secondary" type="button">Buscar</button>
+        <button class="btn btn-outline-secondary" type="button" (click)="filtrar()">Buscar</button>
 
     </div>
 
@@ -75,6 +76,12 @@
           </tr>
         </thead>
         <tbody>
+
+            <tr *ngFor="let item of vehiculos">
+                <td>{{item.placa}}</td>
+                <td>{{item.color}}</td>
+                <td>{{item.estado}}</td>
+              </tr>
         </tbody>
     </table>
 
