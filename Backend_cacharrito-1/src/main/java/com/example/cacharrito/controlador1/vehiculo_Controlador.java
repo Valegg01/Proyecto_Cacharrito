@@ -24,11 +24,11 @@ public class vehiculo_Controlador {
 	
 	private vehiculo_Repositorio RepVehiculo;
 	
-	// funcion para buscar vehiculos disponibles y no disponibles
+	// funcion para buscar vehiculos disponibles y no disponibles y por el tipo
 	@GetMapping("/filtro")
-	public List<vehiculo> filtroVheiculo(@RequestParam String filtro){
+	public List<vehiculo> filtroVheiculo(@RequestParam String filtro, @RequestParam String tipo){
 		
-		return this.RepVehiculo.findByestado(filtro);
+		return this.RepVehiculo.findByEstadoAndTipo(filtro, tipo);
 	}
 	
 	
