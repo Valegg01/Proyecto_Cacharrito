@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.cacharrito.modelo1.vehiculo;
 import com.example.cacharrito.repositorio1.vehiculo_Repositorio;
@@ -22,11 +24,11 @@ public class vehiculo_Controlador {
 	
 	private vehiculo_Repositorio RepVehiculo;
 	
-	// funcion para buscar vehiculos disponibles y no disponibles
+	// funcion para buscar vehiculos disponibles y no disponibles y por el tipo
 	@GetMapping("/filtro")
-	public List<vehiculo> filtroVheiculo(@RequestParam String filtro){
+	public List<vehiculo> filtroVheiculo(@RequestParam String filtro, @RequestParam String tipo){
 		
-		return this.RepVehiculo.findByestado(filtro);
+		return this.RepVehiculo.findByEstadoAndTipo(filtro, tipo);
 	}
 	
 	

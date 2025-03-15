@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { AdminService } from '../servicios/admin.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login-admin',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, FormsModule],
   templateUrl: './login-admin.component.html',
   styleUrl: './login-admin.component.css'
 })

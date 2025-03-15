@@ -27,15 +27,13 @@ public class alquiler_Controlador {
 	
 	@PostMapping("/registrarAlquiler")
 	public void registrarAlquiler(@RequestBody alquiler alquilerr) {
+		
+		alquilerr.setEstado("Pendiente");
+		
 		alquilerRepositorio.save(alquilerr);
 	}
 	
-	/*@PostMapping("/solicitarAlquiler")
-	public List<alquiler>consultarAlquileresPorUsuario(@RequestBody Map<String, Long> request){
-		usuario idUsuario = request.get("idUsuario");
-		return alquilerRepositorio.findByid_Usuario(idUsuario);
-	}*/
-	
+
 	@GetMapping("/listaDeAlquileres")
 	public List<alquiler>listarAlquileres(){
 		return alquilerRepositorio.findAll();
