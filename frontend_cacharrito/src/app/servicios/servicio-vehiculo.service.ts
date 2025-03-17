@@ -18,4 +18,6 @@ export class ServicioVehiculoService {
   filtro_tipo_estado(Tipo:string, filtro:string):Observable<any>{
     return this.httpClient.get(`http://localhost:8080/vehiculo/filtro?filtro=${filtro}&tipo=${Tipo}`)
   }
+
+  
 }
