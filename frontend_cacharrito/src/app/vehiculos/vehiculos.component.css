@@ -1,9 +1,41 @@
-table{
-    width: 50%;
-    float: right;
+.tabulacion{
+    margin-left: auto;
+    margin-right: 5%;
+    width: 40%;
+    height: 70vh;
+    overflow-y:auto ;
+    margin-bottom: 2%;
+    border: solid black;
+    margin-top: 2%;
 }
 
+table{
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+thead {
+
+    position: sticky;
+    top: 0;
+    left: 0;
+    text-align: center;
+
+}
+
+th{
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+/* inputs*/
+
+
 form{
-    width: 50%;
+    width: 40%;
     float: left;
+    margin: auto;
+    margin-top: 2.5%;
+    margin-left: 5%;
 }
