@@ -22,11 +22,11 @@ public class vehiculo_Controlador {
 	
 	@Autowired
 	private vehiculo_Repositorio RepVehiculo;
-	
+
 	@GetMapping("/filtro")
-	public List<vehiculo> filtroVheiculo(@RequestParam String filtro){
+	public List<vehiculo> filtroVheiculo(@RequestParam String filtro, @RequestParam String tipo){
 		
-		return this.RepVehiculo.findByestado(filtro);
+		return this.RepVehiculo.findByEstadoAndTipo(filtro, tipo);
 	}
 	
 	@GetMapping("/Tipo")

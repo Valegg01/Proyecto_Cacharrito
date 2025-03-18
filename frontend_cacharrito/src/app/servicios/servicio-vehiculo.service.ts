@@ -11,6 +11,13 @@ export class ServicioVehiculoService {
   constructor(private httpClient: HttpClient) { }
 
   buscar_tipo(Tipo:string):Observable<any>{
-    return this.httpClient.get(`http://localhost:8080/conVehiculo/Tipo?Tipo=${Tipo}`)
+    return this.httpClient.get(`http://localhost:8080/vehiculo/Tipo?Tipo=${Tipo}`)
+
   }
+
+  filtro_tipo_estado(Tipo:string, filtro:string):Observable<any>{
+    return this.httpClient.get(`http://localhost:8080/vehiculo/filtro?filtro=${filtro}&tipo=${Tipo}`)
+  }
+
+  
 }
