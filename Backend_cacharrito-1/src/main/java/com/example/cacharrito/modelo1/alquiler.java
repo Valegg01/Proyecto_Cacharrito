@@ -16,8 +16,8 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
-@Entity  /*esto establece la entidad en la base de datos*/
-@Table(name ="alquiler") // nombre de la tabla en la base de datos
+@Entity  
+@Table(name ="alquiler") 
 
 public class alquiler {
 	
@@ -27,7 +27,7 @@ public class alquiler {
 	private Long idAlquiler;
 	
 	@ManyToOne()
-	@JoinColumn(name="id_Usuario",referencedColumnName="id_Usuario")
+	@JoinColumn(name="idUsuario",referencedColumnName="idUsuario")
 	private usuario idUsuario;
 	
 	@ManyToOne()
@@ -62,10 +62,10 @@ public class alquiler {
 		// TODO Auto-generated constructor stub
 	}
 
-	public alquiler(usuario id_Usuario, vehiculo id_vehiculo, administrador id_Admin, Date fecha_Inicio, Date fecha_Fin,
+	public alquiler(usuario idUsuario, vehiculo id_vehiculo, administrador id_Admin, Date fecha_Inicio, Date fecha_Fin,
 			String estado, String valor_Total) {
 		super();
-		this.idUsuario = id_Usuario;
+		this.idUsuario = idUsuario;
 		this.idVehiculo = id_vehiculo;
 		this.idAdmin = id_Admin;
 		fechaInicio = fecha_Inicio;
@@ -82,12 +82,12 @@ public class alquiler {
 		this.idAlquiler = id_Alquiler;
 	}
 
-	public usuario getId_Usuario() {
+	public usuario getIdUsuario() {
 		return idUsuario;
 	}
 
-	public void setId_Usuario(usuario id_Usuario) {
-		this.idUsuario = id_Usuario;
+	public void setIdUsuario(usuario idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 	public vehiculo getId_vehiculo() {

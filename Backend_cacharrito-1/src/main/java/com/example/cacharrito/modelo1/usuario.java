@@ -3,6 +3,7 @@ package com.example.cacharrito.modelo1;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,7 +21,7 @@ public class usuario {
 		
 		@Id 
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
-		@Column(name = "id_Usuario")
+		@Column(name = "idUsuario")
 		private Long idUsuario;
 		
 		@Column(name="nombre", nullable = false)
@@ -30,14 +31,13 @@ public class usuario {
 		private Long numIden;
 		
 		@Temporal(TemporalType.DATE) // para determinar si usa horas o fechas o ambas
-		//@DateTimeFormat(iso = ISO.DATE) // para guardar solo la fecha
-		@DateTimeFormat(pattern = "MM/dd/yyy") // lo mismo pero se cambia el formato
+		@DateTimeFormat(iso = ISO.DATE) // para guardar solo la fecha
 		@Column(name="fecha_Exp", nullable = false )
-		private Date fechaExp;
+		private Date fecha_Exp;
 
 		
 		@Column(name="categoria_Licencia", nullable = false)
-		private String categoriaLicencia;
+		private String categoria_Licencia;
 		
 		@Column(name="correo",nullable = false)
 		private String correo;
@@ -58,19 +58,19 @@ public class usuario {
 			super();
 			this.nombre = nombre;
 			this.numIden = num_Iden;
-			this.fechaExp = fecha_Exp;
-			this.categoriaLicencia = categoria_Licencia;
+			this.fecha_Exp = fecha_Exp;
+			this.categoria_Licencia = categoria_Licencia;
 			this.correo = correo;
 			this.telefono = telefono;
 			this.password = password;
 		}
 
-		public Long getId_Usuario() {
+		public Long getIdUsuario() {
 			return idUsuario;
 		}
 
-		public void setId_Usuario(Long id_Usuario) {
-			this.idUsuario = id_Usuario;
+		public void setIdUsuario(Long idUsuario) {
+			this.idUsuario = idUsuario;
 		}
 
 		public String getNombre() {
@@ -81,28 +81,28 @@ public class usuario {
 			this.nombre = nombre;
 		}
 
-		public Long getNum_Iden() {
+		public Long getNumIden() {
 			return numIden;
 		}
 
-		public void setNum_Iden(Long num_Iden) {
+		public void setNumIden(Long num_Iden) {
 			this.numIden = num_Iden;
 		}
 
 		public Date getFecha_Exp() {
-			return fechaExp;
+			return fecha_Exp;
 		}
 
-		public void setFecha_Exp(Date fecha_Exp) {
-			this.fechaExp = fecha_Exp;
+		public void setFecha_Exp(Date fechaExp) {
+			this.fecha_Exp = fechaExp;
 		}
 
 		public String getCategoria_Licencia() {
-			return categoriaLicencia;
+			return categoria_Licencia;
 		}
 
 		public void setCategoria_Licencia(String categoria_Licencia) {
-			this.categoriaLicencia = categoria_Licencia;
+			this.categoria_Licencia = categoria_Licencia;
 		}
 
 		public String getCorreo() {
