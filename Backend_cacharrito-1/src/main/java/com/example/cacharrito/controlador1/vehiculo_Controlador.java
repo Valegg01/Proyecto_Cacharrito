@@ -21,22 +21,25 @@ import com.example.cacharrito.repositorio1.vehiculo_Repositorio;
 public class vehiculo_Controlador {
 	
 	@Autowired
-	
 	private vehiculo_Repositorio RepVehiculo;
 	
-	// funcion para buscar vehiculos disponibles y no disponibles
 	@GetMapping("/filtro")
 	public List<vehiculo> filtroVheiculo(@RequestParam String filtro){
 		
 		return this.RepVehiculo.findByestado(filtro);
 	}
 	
-	
-	// funcion para buscar por tipo de vehiculo
 	@GetMapping("/Tipo")
 	public List<vehiculo> TipoVheiculo(@RequestParam String Tipo){
 		
 		return this.RepVehiculo.findBytipo(Tipo);
+	}
+	
+	@GetMapping("/disponiblesPorTipo")
+	public List<vehiculo> disponiblesPorTipo(@RequestParam String tipo) {
+		
+		return this.RepVehiculo.findBytipoAndEstado(tipo, "Disponible");
+		
 	}
 
 }
