@@ -1,8 +1,10 @@
 package com.example.cacharrito.controlador1;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,11 +47,30 @@ public class usuario_Controlador {
 	
 	@PostMapping("/registroUsuario")
 	public String registrarUsuario(@RequestBody usuario usuarioo) {
+		System.out.println("Valor de categoriaLicencia: " + usuarioo.getCategoria_Licencia()); 
 		if(usuarioRepositorio.findByCorreo(usuarioo.getCorreo()).isPresent()||
-				usuarioRepositorio.findByNumIden(usuarioo.getNum_Iden()).isPresent()) {
+				usuarioRepositorio.findByNumIden(usuarioo.getNumIden()).isPresent()) {
 			return "Error: Correo o identificacion ya registrados.";
 			}
 		usuarioRepositorio.save(usuarioo);
 		return "Usuario regristrado exitosamente.";
 	}
+	
+	@PostMapping("/usuarioLogin")
+	public String login(@RequestBody usuario loginUsuario) {
+	    String usuario = loginUsuario.getCorreo();
+	    String password = loginUsuario.getPassword();
+
+	    if (usuario == null || password == null) {
+	        return "Usuario y contraseña son requeridos.";
+	    }
+
+	    Optional<usuario> usuarioOptional = usuarioRepositorio.findByCorreo(usuario);
+
+	    if (usuarioOptional.isPresent() && password.equals(usuarioOptional.get().getPassword())) {
+	        return "Login exitoso.";
+	    } else {
+	        return "Credenciales incorrectas.";
+	    }
+	}	 
 }
