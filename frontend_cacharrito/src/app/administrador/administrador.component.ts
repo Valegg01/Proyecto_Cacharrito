@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { ServicioVehiculoService } from '../servicios/servicio-vehiculo.service';
 import { Vehiculo } from '../Entidades/vehiculo';
 import { FormsModule } from '@angular/forms';
+import { Alquiler } from '../Entidades/alquiler';
+import { AlquilerService } from '../servicios/alquiler.service';
 
 @Component({
   selector: 'app-administrador',
@@ -13,12 +15,16 @@ import { FormsModule } from '@angular/forms';
 })
 export class AdministradorComponent {
 
-  constructor(private servicio:ServicioVehiculoService){}
+  constructor(private servicio:ServicioVehiculoService, private seralquiler : AlquilerService){}
 
   tipo!:string;
   estado!: string;
 
   vehiculos!: Vehiculo[];
+
+  alquileres!: Alquiler;
+
+  id!:number;
 
 
   filtrar(){
@@ -35,6 +41,51 @@ export class AdministradorComponent {
 
     })
 
+  }
+
+  buscaid(){
+
+    this.seralquiler.Alquiler(this.id).subscribe(data =>{
+      if(data){
+        console.log(data)
+        this.alquileres = data
+      }else{
+        alert("no se ebncontraron datos")
+      }
+    },(error)=>{
+      alert ("error de respuesta del servidor")
+      console.error(error)
+    })
+
+   
+  }
+
+  eliminar(){
+    this.seralquiler.elimina(this.alquileres.id_Alquiler).subscribe(data=>{
+      if(data){
+        alert("se elimino exitosamente")
+        window.location.reload()
+      }else{
+        alert("error al eliminar el alquiler")
+      }
+    },(error)=>{
+      alert("error de respuesta del servidor")
+      console.error(error)
+    })
+  }
+
+  actaulizar(){
+    this.seralquiler.actualiza(this.alquileres.id_Alquiler).subscribe(data=>{
+      if(data){
+        alert("se aprobo exitosamente")
+        window.location.reload()
+      }else{
+        alert("error al eliminar el alquiler")
+      }
+    },(error)=>{
+      alert("error de respuesta del servidor")
+      console.error(error)
+    })
   }
 
   ver_alquiler(){

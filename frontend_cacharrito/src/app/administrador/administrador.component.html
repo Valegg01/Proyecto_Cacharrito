@@ -13,8 +13,8 @@
 
     
   <div class="input-group mb-3" id="inputs">
-    <input type="text" class="form-control" placeholder="Buscar alquiler" aria-label="Recipient's username" aria-describedby="button-addon2">
-    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+    <input type="text" class="form-control" placeholder="Buscar alquiler" aria-label="Recipient's username" aria-describedby="button-addon2" [(ngModel)]="id">
+    <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="buscaid()">Buscar</button>
   </div>
 
 
@@ -25,10 +25,19 @@
             <td>Solicitante</td>
             <td>vehiculo</td>
             <td>Estado</td>
-            <td>Acciones</td>
+            <td>eliminar</td>
+            <td>actualizar estado</td>
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td>{{alquileres.id_Alquiler}}</td>
+            <td>{{alquileres.id_Usuario.nombre}}</td>
+            <td>{{alquileres.id_Vehiculo.placa}}</td>
+            <td>{{alquileres.estado}}</td>
+            <td><button (click)="eliminar()">eliminar</button></td>
+            <td><button (click)="actaulizar()">aprobar</button></td>
+          </tr>
             
         </tbody>
     </table>

@@ -39,6 +39,33 @@ public class alquiler_Controlador {
 		return alquilerRepositorio.findAll();
 	}
 	
+	@GetMapping("/buascarid")
+	public Optional<alquiler> buscaid( @RequestParam Long id_Alquiler){
+		return alquilerRepositorio.findById(id_Alquiler);
+	}
+	
+	
+	@GetMapping("/eliminar")
+	public boolean eliminar( @RequestParam Long id_Alquiler){
+		
+		this.alquilerRepositorio.deleteById(id_Alquiler);
+		return true;
+	}
+	
+	@GetMapping("/nuevoestado")
+	public alquiler nuevoestado( @RequestParam Long id_Alquiler){
+		
+		alquiler alq = this.alquilerRepositorio.findById(id_Alquiler).get();
+		
+		alq.setEstado("entregado");
+		
+		this.alquilerRepositorio.save(alq);
+		
+		
+		return alq;
+	}
+	
+	
 	@PutMapping("/cancelarAlquiler")
 	public String cancelarAlquiler(@RequestParam Long id_Alquiler) {
 		Optional<alquiler> alquilerr = alquilerRepositorio.findById(id_Alquiler);

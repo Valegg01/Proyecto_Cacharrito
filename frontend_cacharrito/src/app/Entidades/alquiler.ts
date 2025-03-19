@@ -7,7 +7,7 @@ export class Alquiler{
     id_Vehiculo!:Vehiculo;
     id_Admin!:Administrador;
     Fecha_Inicio!:Date;
-    estado!:String;
+    estado:string ='';
     valor_Total!:number;
 }
 

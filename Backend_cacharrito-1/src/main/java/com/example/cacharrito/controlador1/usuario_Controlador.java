@@ -73,4 +73,5 @@ public class usuario_Controlador {
 	        return "Credenciales incorrectas.";
 	    }
 	} 
+	
 }
