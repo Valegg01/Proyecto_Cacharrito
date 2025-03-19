@@ -3,5 +3,5 @@ export class Vehiculo{
     tipo!:string;
     placa!:string;
     color!:string;
-    estado!:string
+    estado!:string;
 }

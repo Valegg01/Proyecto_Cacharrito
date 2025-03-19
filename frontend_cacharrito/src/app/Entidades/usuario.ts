@@ -1,9 +1,9 @@
 export class Usuario {
-    id_Usuario!: number;
+    idUsuario!: number;
     nombre!: string;
-    num_Iden!: number;
+    numIden!: number;
     fecha_Exp!: Date;
-    categoria_Licencia!: String;
+    categoria_Licencia!: string;
     correo!: string;
     telefono!: string;
     password!: string;

@@ -45,15 +45,15 @@ public class alquiler_Controlador {
 		@GetMapping("/registrar")
 		public alquiler registroAlquiler(
 				@RequestParam String placa,
-				@RequestParam ("fechai") @DateTimeFormat(pattern = "dd/MM/yyyy") Date fecha1,
-				@RequestParam ("fechat") @DateTimeFormat(pattern = "dd/MM/yyyy") Date fecha2,
+				@RequestParam ("inicio") @DateTimeFormat(pattern = "dd/MM/yyyy") Date ini,
+				@RequestParam ("final") @DateTimeFormat(pattern = "dd/MM/yyyy") Date fin,
 				@RequestParam Long cedula,
 				@RequestParam Long valor) {
 			
 			
 			com.example.cacharrito.modelo1.administrador admin = this.adminRepositorio.findById(1L).get();
 			
-			com.example.cacharrito.modelo1.usuario usu = this.usuarioRepositorio.findByInumIden(cedula);
+			com.example.cacharrito.modelo1.usuario usu = this.usuarioRepositorio.findBynumIden(cedula);
 			
 			vehiculo vehi = this.vehiculoRepositorio.findByPlaca(placa);	
 			
@@ -61,7 +61,7 @@ public class alquiler_Controlador {
 			
 			this.vehiculoRepositorio.save(vehi);
 			
-			alquiler nuevo = new alquiler(usu, vehi,admin, fecha1,fecha2,"pendiente", valor);
+			alquiler nuevo = new alquiler(usu, vehi,admin, ini,fin,"pendiente", valor);
 			
 			this.alquilerRepositorio.save(nuevo);
 			

@@ -27,21 +27,21 @@
 
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">Inicio</span>
-        <input type="date" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="inicio" (change)="formatearfecha()" required="campo requerido">
+        <input type="date" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="inicio" (change)="formatearfecha()" required="campo requerido" name="inicio">
         <span class="input-group-text" id="basic-addon1">Entrega</span>
-        <input type="date" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="final"  (change)="formatearfecha()" required="campo requerido">
+        <input type="date" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="final"  (change)="formatearfecha()" required="campo requerido" name="final">
       </div>
 
       <div class="input-group mb-3">
         
         <span class="input-group-text" id="basic-addon1">confirme su identidicacón (cedula)</span>
-        <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="cedula"required="campo requerido">
+        <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="cedula"required="campo requerido" name="cedula">
         
       </div>
 
       <p>total del alquiler : {{valor}}</p>
 
-      <button>alquilar coche</button>
+      <button (click)="registrar()">alquilar coche</button>
 
 
     </div>
