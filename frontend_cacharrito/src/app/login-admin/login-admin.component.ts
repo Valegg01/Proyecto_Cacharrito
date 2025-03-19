@@ -17,24 +17,24 @@ export class LoginAdminComponent {
 
   constructor(private servicio: AdminService){}
 
-  logueo(){
-
-    this.servicio.buscar_tipo(this.usuario,this.contra).subscribe(dato =>{
-
-      console.log(dato)
-      if(dato===true){
-        alert("bienvenido")
-
-        window.location.replace("/admin")
-      }else{
-        alert("usuario o contraseña incorrecta")
-      }
-
-
-    },error=>{
-      alert("error al procesar la solicitud")
-    })
-
+  logueo() {
+    this.servicio.buscar_tipo(this.usuario, this.contra).subscribe(
+        dato => {
+            if (dato === true) {
+                alert("bienvenido");
+                window.location.replace("/admin");
+            } else {
+                alert("usuario o contraseña incorrecta");
+            }
+        },
+        error => {
+            if (error.status === 404) {
+                alert("Usuario no encontrado");
+            } else {
+                alert("Error al procesar la solicitud");
+            }
+            console.error("Error:", error);
+        }
+    );
   }
-
 }

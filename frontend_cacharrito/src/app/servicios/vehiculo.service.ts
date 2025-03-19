@@ -9,15 +9,29 @@ import { Vehiculo } from '../Entidades/vehiculo';
 export class VehiculoService {
 
   private apibuscarVehiculosDisponiblesPorTipo = 'http://localhost:8080/vehiculo/disponiblesPorTipo';
+  private apiUrl = 'http://localhost:8080/vehiculo';
 
   constructor(private HttpClient : HttpClient) {}
 
   buscarVehiculosDisponiblesPorTipo(tipo: string): Observable<Vehiculo[]> {
-    let params = new HttpParams();
-    if (tipo) {
-        params = params.set('tipo', tipo);
-    }
-    return this.HttpClient.get<Vehiculo[]>(this.apibuscarVehiculosDisponiblesPorTipo + 'disponiblesPorTipo', { params });
-}
+   
+    return this.HttpClient.get<Vehiculo[]>(`${this.apibuscarVehiculosDisponiblesPorTipo}?tipo=${tipo}`);
+  }
+
+  listarVehiculos(): Observable<Vehiculo[]> {
+    return this.HttpClient.post<Vehiculo[]>(`${this.apiUrl}/lista`, {});
+  }
+  
+  agregarVehiculo(vehiculo: Vehiculo): Observable<Vehiculo> {
+    return this.HttpClient.post<Vehiculo>(`${this.apiUrl}/agregar`, vehiculo);
+  }
+  
+  editarVehiculo(vehiculo: Vehiculo): Observable<Vehiculo> {
+    return this.HttpClient.put<Vehiculo>(`${this.apiUrl}/editar`, vehiculo);
+  }
+  
+  eliminarVehiculo(id: number): Observable<void> {
+    return this.HttpClient.delete<void>(`${this.apiUrl}/eliminar`, { body: { id_vehiculo: id } }); 
+  }
 }
 

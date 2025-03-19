@@ -1,16 +1,20 @@
-<div class="container">
-    <h2>Búsqueda de Vehículos Disponibles</h2>
-    <form (ngSubmit)="buscarVehiculos()">
-        <div class="form-group">
-            <label for="tipo">Tipo de Vehículo:</label>
-            <select class="form-control" id="tipo" [(ngModel)]="tipo" name="tipo" required>
-                <option value="">Todos</option>
-                <option value="camioneta">camioneta</option>
-                <option value="motocicleta">motocicleta</option>
-                <option value="microbus">microbus</option>
-                <option value="campero">campero</option>
-            </select>
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card p-4" style="width: 400px;">
+      <h2 class="text-center mb-4">Búsqueda de Vehículos Disponibles</h2>
+      <form (ngSubmit)="buscarVehiculos()">
+        <div class="mb-3">
+          <label for="tipo" class="form-label">Tipo de Vehículo:</label>
+          <select class="form-select" id="tipo" [(ngModel)]="tipo" name="tipo" required>
+            <option value="">Todos</option>
+            <option value="camioneta">Camioneta</option>
+            <option value="motocicleta">Motocicleta</option>
+            <option value="microbus">Microbus</option>
+            <option value="campero">Campero</option>
+          </select>
         </div>
-        <button type="submit" class="btn btn-primary" [disabled]="!tipo">Buscar</button>
-    </form>
-</div>
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary btn-lg" [disabled]="!tipo">Buscar</button>
+        </div>
+      </form>
+    </div>
+  </div>

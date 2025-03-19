@@ -1,7 +1,10 @@
-<div class="container">
-    
+<div class="container-fluid" style="min-height: 80vh; color: black; text-align: center; display: flex; flex-direction: column; padding: 20px;">
+  <div class="container">
+    <h1 class="display-4 mb-4">¡Bienvenido a Mi Cacharrito!</h1>
+  </div>
+  <div class="container" style="margin-top: 20px;">
     <form (ngSubmit)="onSubmit()">
-        <h2>Registro de Usuario</h2>
+      <h2>Registro de Usuario</h2>
       <div class="form-group">
         <label for="numIden">Identificación</label>
         <input type="number" class="form-control" id="num_Iden" [(ngModel)]="num_Iden" name="num_Iden">
@@ -36,7 +39,4 @@
       </div>
     </form>
   </div>
-
-  
-
- 
+</div>

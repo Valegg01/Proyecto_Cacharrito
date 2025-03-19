@@ -1,0 +1,42 @@
+<h2>Gestión de Vehículos</h2>
+
+<div *ngIf="!modoEdicion">
+    <h3>Agregar Vehículo</h3>
+    <input type="text" placeholder="Tipo" [(ngModel)]="nuevoVehiculo.tipo">
+    <input type="text" placeholder="Color" [(ngModel)]="nuevoVehiculo.color">
+    <input type="text" placeholder="Placa" [(ngModel)]="nuevoVehiculo.placa">
+    <button (click)="agregarVehiculo()">Agregar</button>
+</div>
+
+<div *ngIf="modoEdicion">
+    <h3>Editar Vehículo</h3>
+    <input type="text" [(ngModel)]="vehiculoSeleccionado.tipo">
+    <input type="text" [(ngModel)]="vehiculoSeleccionado.color">
+    <input type="text" [(ngModel)]="vehiculoSeleccionado.placa">
+    <button (click)="editarVehiculo()">Guardar</button>
+    <button (click)="modoEdicion = false">Cancelar</button>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Tipo</th>
+            <th>Color</th>
+            <th>Placa</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let vehiculo of vehiculos">
+            <td>{{ vehiculo.tipo }}</td>
+            <td>{{ vehiculo.color }}</td>
+            <td>{{ vehiculo.placa }}</td>
+            <td>{{ vehiculo.estado }}</td>
+            <td>
+                <button (click)="seleccionarVehiculo(vehiculo)">Editar</button>
+                <button (click)="eliminarVehiculo(vehiculo.id_vehiculo)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

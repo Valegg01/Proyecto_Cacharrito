@@ -15,7 +15,6 @@ export class VehiculosComponent {
   constructor(private serveh:ServicioVehiculoService){}
 
   tipo!: string;
-
   vehiculo!:Vehiculo[];
 
  

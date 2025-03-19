@@ -1,12 +1,16 @@
 package com.example.cacharrito.controlador1;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
-
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +20,7 @@ import com.example.cacharrito.repositorio1.vehiculo_Repositorio;
 
 @RestController
 @RequestMapping("/vehiculo/")
-@CrossOrigin(origins="http://localhost:4200/")
+@CrossOrigin(origins="http://localhost:4200")
 
 public class vehiculo_Controlador {
 	
@@ -41,5 +45,26 @@ public class vehiculo_Controlador {
 		return this.RepVehiculo.findBytipoAndEstado(tipo, "Disponible");
 		
 	}
+	
+	@PostMapping("/lista")
+    public List<vehiculo> listarVehiculos() {
+        return RepVehiculo.findAll();
+    }
+
+    @PostMapping("/agregar")
+    public vehiculo agregarVehiculo(@RequestBody vehiculo vehiculo) {
+        return RepVehiculo.save(vehiculo);
+    }
+
+    @PutMapping("/editar")
+    public vehiculo editarVehiculo(@RequestBody vehiculo vehiculo) {
+        return RepVehiculo.save(vehiculo);
+    }
+
+    @DeleteMapping("/eliminar")
+    public void eliminarVehiculo(@RequestBody Map<String, Long> payload) {
+        Long id = payload.get("id_vehiculo"); 
+        RepVehiculo.deleteById(id);
+    }
 
 }

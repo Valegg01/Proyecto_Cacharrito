@@ -3,6 +3,8 @@ package com.example.cacharrito.controlador1;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,20 +25,22 @@ public class admin_controlador {
 	
 	
 	@GetMapping("/loguinAdmin")
-	public boolean loguinadmin(
-	        @RequestParam String usuario,
-	        @RequestParam String Password) {
+	public ResponseEntity<Boolean> loguinadmin(@RequestParam String usuario, @RequestParam String Password) {
 	    try {
-	        administrador encontrado = this.repadmin.findByUsuario(usuario).get();
-	        
-	        if (encontrado.getUsuario().equals(usuario) && encontrado.getPassword().equals(Password)) {
-	            return true;
+	        Optional<administrador> optionalEncontrado = this.repadmin.findByUsuario(usuario);
+	        if (optionalEncontrado.isPresent()) {
+	            administrador encontrado = optionalEncontrado.get();
+	            if (encontrado.getPassword().equals(Password)) {
+	                return ResponseEntity.ok(true);
+	            } else {
+	                return ResponseEntity.ok(false);
+	            }
 	        } else {
-	            return false;
+	            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(false); // Usuario no encontrado
 	        }
 	    } catch (Exception e) {
 	        System.err.println("Error al intentar iniciar sesión: " + e.getMessage());
-	        return false;
+	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(false); // Error interno
 	    }
 	}
 	
