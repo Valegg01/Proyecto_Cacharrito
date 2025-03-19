@@ -1,0 +1,74 @@
+
+/*navegador de opciones del administrador*/
+
+#opciones{
+    background-color: black;
+    width: 25%;
+    height: 90vh;
+    float: left;
+}
+
+.buttonnav{
+    list-style: none;
+    width: 100%;
+    height: 10vh ;
+    background-color: azure;
+}
+
+
+/*contenedores de alquiler y vehiculos*/
+.contenido{
+    width: 75%;
+    height: 90vh;
+    float: right;
+}
+
+.contenido.alquiler{
+    display: block;
+    text-align: center;
+}
+
+.contenido.vehiculo{
+    display: none;
+    text-align: center;
+}
+
+
+.tabulacion{
+    margin-left: 5%;
+    width: 90%;
+    height: 70vh;
+    overflow-y:auto ;
+    margin-bottom: 2%;
+    border: solid black;
+    margin-top: 2%;
+}
+
+table{
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+
+
+thead {
+
+    position: sticky;
+    top: 0;
+    left: 0;
+    text-align: center;
+
+}
+
+th{
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+/* inputs*/
+
+#inputs{
+    width: 90%;
+    margin-left: 5%;
+}

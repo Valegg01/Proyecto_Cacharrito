@@ -27,15 +27,15 @@ public class admin_controlador {
 	        @RequestParam String usuario,
 	        @RequestParam String Password) {
 	    try {
-	        administrador encontrado = this.repadmin.findByUsuario(usuario).orElse(null);
+	        administrador encontrado = this.repadmin.findByUsuario(usuario).get();
 	        
-	        if (encontrado != null && encontrado.getUsuario().equals(usuario) && encontrado.getPassword().equals(Password)) {
+	        if (encontrado.getUsuario().equals(usuario) && encontrado.getPassword().equals(Password)) {
 	            return true;
 	        } else {
 	            return false;
 	        }
 	    } catch (Exception e) {
-	        //System.err.println("Error al intentar iniciar sesión: " + e.getMessage());
+	        System.err.println("Error al intentar iniciar sesión: " + e.getMessage());
 	        return false;
 	    }
 	}
