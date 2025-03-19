@@ -22,10 +22,6 @@ import com.example.cacharrito.repositorio1.admin_Repositorio;
 import com.example.cacharrito.repositorio1.alquiler_Repositorio;
 import com.example.cacharrito.repositorio1.usuario_Repositorio;
 import com.example.cacharrito.repositorio1.vehiculo_Repositorio;
-import com.example.micacharrito.modelo.administrador;
-import com.example.micacharrito.modelo.coches;
-import com.example.micacharrito.modelo.persona;
-import com.example.micacharrito.modelo.usuario;
 
 @RestController
 @RequestMapping("/alquiler")

@@ -14,7 +14,7 @@ Optional<usuario>findByNumIden(Long numIden);
 
 Optional<usuario>findById(Long idUsuario);
 
-usuario findByInumIden(Long cedula);
+usuario findBynumIden(Long cedula);
 
 
 }
