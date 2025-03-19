@@ -11,9 +11,9 @@ export class AuthService {
 
     constructor(private router: Router, private usuarioService: serviciousuario) {}
 
-    login(correo: string, password: string): Observable<string> {
+    login(numIden: number, password: string): Observable<string> {
         return new Observable<string>((observer) => {
-            this.usuarioService.login(correo, password).subscribe(
+            this.usuarioService.login(numIden, password).subscribe(
                 (mensaje) => {
                     if (mensaje === 'Login exitoso.') {
                         this.isAuthenticatedSubject.next(true);

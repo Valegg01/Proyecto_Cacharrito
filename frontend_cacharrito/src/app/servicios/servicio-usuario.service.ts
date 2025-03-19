@@ -18,8 +18,8 @@ export class serviciousuario {
       return this.HttpClient.post(this.apiURL, usuario, { responseType: 'text' }); 
     }
 
-    login(correo: string, password: string): Observable<string> {
-      return this.HttpClient.post(this.apiURLLogin, { correo, password }, { responseType: 'text' });
+    login(numIden: number, password: string): Observable<string> {
+      return this.HttpClient.post(this.apiURLLogin, { numIden, password }, { responseType: 'text' });
   }
 
 }

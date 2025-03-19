@@ -14,7 +14,7 @@ import { Vehiculo } from '../Entidades/vehiculo';
 export class VehiculosComponent {
   constructor(private serveh:ServicioVehiculoService){}
 
-  Tipo!: string;
+  tipo!: string;
 
   vehiculo!:Vehiculo[];
 
@@ -22,7 +22,7 @@ export class VehiculosComponent {
 
   buscar_tipo(){
 
-    this.serveh.buscar_tipo(this.Tipo).subscribe(dato=>{
+    this.serveh.buscar_tipo(this.tipo).subscribe(dato=>{
     
       this.vehiculo=dato;
 

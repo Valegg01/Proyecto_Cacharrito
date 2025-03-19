@@ -14,19 +14,18 @@ import { Router } from '@angular/router';
 })
 export class LoginUsuarioComponent {
 
-  correo = '';
+  numIden: number  = 0;
   password = '';
   mensajeError = '';
 
   constructor(private usuarioService: serviciousuario, private authService: AuthService, private router: Router) {} // Inyecta AuthService y Router
 
   onSubmit(): void {
-    this.authService.login(this.correo, this.password).subscribe(
+    this.authService.login(this.numIden, this.password).subscribe(
         (mensaje) => {
             if (mensaje === 'Login exitoso.') {
               console.log(mensaje)
-                //this.router.navigate(['/buscar-vehiculos']);
-                window.location.replace('/buscarvehiculos')
+              window.location.replace('/buscarvehiculos')
             } else {
                 this.mensajeError = 'Credenciales inválidas.';
             }

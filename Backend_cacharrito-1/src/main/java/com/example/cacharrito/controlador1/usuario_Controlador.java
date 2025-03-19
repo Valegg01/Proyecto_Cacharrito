@@ -58,19 +58,19 @@ public class usuario_Controlador {
 	
 	@PostMapping("/usuarioLogin")
 	public String login(@RequestBody usuario loginUsuario) {
-	    String usuario = loginUsuario.getCorreo();
+	    Long identificacion = loginUsuario.getNumIden();
 	    String password = loginUsuario.getPassword();
 
-	    if (usuario == null || password == null) {
-	        return "Usuario y contraseña son requeridos.";
+	    if (identificacion == null || password == null) {
+	        return "Identificación y contraseña son requeridas.";
 	    }
 
-	    Optional<usuario> usuarioOptional = usuarioRepositorio.findByCorreo(usuario);
+	    Optional<usuario> usuarioOptional = usuarioRepositorio.findByNumIden(identificacion);
 
 	    if (usuarioOptional.isPresent() && password.equals(usuarioOptional.get().getPassword())) {
 	        return "Login exitoso.";
 	    } else {
 	        return "Credenciales incorrectas.";
 	    }
-	}	 
+	} 
 }

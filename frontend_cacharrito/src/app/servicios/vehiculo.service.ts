@@ -12,18 +12,12 @@ export class VehiculoService {
 
   constructor(private HttpClient : HttpClient) {}
 
-  buscarVehiculosDisponiblesPorTipo(tipo: string, fechaInicio: Date | undefined, fechaFin: Date | undefined): Observable<Vehiculo[]> {
+  buscarVehiculosDisponiblesPorTipo(tipo: string): Observable<Vehiculo[]> {
     let params = new HttpParams();
     if (tipo) {
         params = params.set('tipo', tipo);
     }
-    if (fechaInicio) {
-        params = params.set('fechaInicio', fechaInicio.toISOString().split('T')[0]);
-    }
-    if (fechaFin) {
-        params = params.set('fechaFin', fechaFin.toISOString().split('T')[0]);
-    }
     return this.HttpClient.get<Vehiculo[]>(this.apibuscarVehiculosDisponiblesPorTipo + 'disponiblesPorTipo', { params });
-  }
+}
 }
 

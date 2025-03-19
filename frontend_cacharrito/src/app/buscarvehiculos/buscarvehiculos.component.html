@@ -5,20 +5,12 @@
             <label for="tipo">Tipo de Vehículo:</label>
             <select class="form-control" id="tipo" [(ngModel)]="tipo" name="tipo" required>
                 <option value="">Todos</option>
-                <option value="Coche">Coche</option>
-                <option value="Moto">Moto</option>
-                <option value="Camioneta">Camioneta</option>
+                <option value="camioneta">camioneta</option>
+                <option value="motocicleta">motocicleta</option>
+                <option value="microbus">microbus</option>
+                <option value="campero">campero</option>
             </select>
-        </div>
-        <div class="form-group">
-            <label for="fechaInicio">Fecha de Inicio:</label>
-            <input type="date" class="form-control" id="fechaInicio" [(ngModel)]="fechaInicio" name="fechaInicio">
-        </div>
-        <div class="form-group">
-            <label for="fechaFin">Fecha de Fin:</label>
-            <input type="date" class="form-control" id="fechaFin" [(ngModel)]="fechaFin" name="fechaFin">
         </div>
         <button type="submit" class="btn btn-primary" [disabled]="!tipo">Buscar</button>
     </form>
 </div>
-

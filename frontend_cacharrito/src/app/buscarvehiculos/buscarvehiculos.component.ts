@@ -16,8 +16,6 @@ import { Router } from '@angular/router';
 export class BuscarvehiculosComponent implements OnInit {
 
   tipo: string = '';
-  fechaInicio: Date | undefined = undefined;
-  fechaFin: Date | undefined = undefined;
   vehiculos: Vehiculo[] = [];
   mensajeError: string = '';
 
@@ -31,7 +29,7 @@ export class BuscarvehiculosComponent implements OnInit {
         this.mensajeError = 'Por favor, selecciona un tipo de vehículo.';
         return;
     }
-    this.vehiculoService.buscarVehiculosDisponiblesPorTipo(this.tipo, this.fechaInicio, this.fechaFin).subscribe(
+    this.vehiculoService.buscarVehiculosDisponiblesPorTipo(this.tipo).subscribe(
         (vehiculos) => {
             this.vehiculos = vehiculos;
             this.mensajeError = '';
