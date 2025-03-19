@@ -22,7 +22,7 @@ export class VehiculosComponent {
 
   buscar_tipo(){
 
-    this.serveh.buscar_tipo(this.Tipo).subscribe(dato=>{
+    this.serveh.filtro_tipo_estado(this.Tipo,'disponible').subscribe(dato=>{
     
       this.vehiculo=dato;
 

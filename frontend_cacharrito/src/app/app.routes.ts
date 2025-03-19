@@ -6,6 +6,7 @@ import { LoginUsuarioComponent } from './login-usuario/login-usuario.component';
 import { AuthService } from './servicios/auth.service';
 import { inject } from '@angular/core';
 import { BuscarvehiculosComponent } from './buscarvehiculos/buscarvehiculos.component';
+import { VehiculosComponent } from './vehiculos/vehiculos.component';
 
 export const routes: Routes = [
 
@@ -13,7 +14,7 @@ export const routes: Routes = [
     {path: "LoguinAdmin", component:LoginAdminComponent},
     {path: "admin", component:AdministradorComponent},
     {path: "login", component: LoginUsuarioComponent },
-    {path: 'buscarvehiculos', component: BuscarvehiculosComponent},
+    {path: 'buscarvehiculos', component: VehiculosComponent},
     {path: '', redirectTo: '/login', pathMatch: 'full' }
     
 
