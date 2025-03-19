@@ -22,27 +22,26 @@
       <h4>ingrese las fechas en que realizara el alquiler</h4>
 
       <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">placa del vehiculo</span>
-        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+        <span class="input-group-text" id="basic-addon1">placa del vehiculo a alquilar: {{placa}}</span>
       </div>
 
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">Inicio</span>
-        <input type="date" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
+        <input type="date" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="inicio" (change)="formatearfecha()" required="campo requerido">
         <span class="input-group-text" id="basic-addon1">Entrega</span>
-        <input type="date" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
+        <input type="date" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="final"  (change)="formatearfecha()" required="campo requerido">
       </div>
 
       <div class="input-group mb-3">
         
         <span class="input-group-text" id="basic-addon1">confirme su identidicacón (cedula)</span>
-        <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+        <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="cedula"required="campo requerido">
         
       </div>
 
-      <p>total del alquiler</p>
+      <p>total del alquiler : {{valor}}</p>
 
-      <button>alquilar</button>
+      <button>alquilar coche</button>
 
 
     </div>
@@ -67,7 +66,7 @@
         <td>{{item.color}}</td>
         <td>{{item.placa}}</td>
         <td>{{item.estado}}</td>
-        <td> <button>Alquilar</button></td>
+        <td> <button (click)="alquilar(item.placa)">Alquilar</button></td>
       </tr>
     </tbody>
 </table>

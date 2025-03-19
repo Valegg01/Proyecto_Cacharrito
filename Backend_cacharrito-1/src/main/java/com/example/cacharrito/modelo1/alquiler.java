@@ -55,7 +55,7 @@ public class alquiler {
 
 	
 	@Column(name="valor_Total", nullable = false)
-	private String valorTotal;
+	private Long valorTotal;
 	
 	public alquiler() {
 		super();
@@ -63,7 +63,7 @@ public class alquiler {
 	}
 
 	public alquiler(usuario idUsuario, vehiculo id_vehiculo, administrador id_Admin, Date fecha_Inicio, Date fecha_Fin,
-			String estado, String valor_Total) {
+			String estado, Long valor_Total) {
 		super();
 		this.idUsuario = idUsuario;
 		this.idVehiculo = id_vehiculo;
@@ -130,11 +130,11 @@ public class alquiler {
 		this.estado = estado;
 	}
 
-	public String getValor_Total() {
+	public Long getValor_Total() {
 		return valorTotal;
 	}
 
-	public void setValor_Total(String valor_Total) {
+	public void setValor_Total(Long valor_Total) {
 		this.valorTotal = valor_Total;
 	}
 

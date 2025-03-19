@@ -13,6 +13,7 @@ public interface vehiculo_Repositorio  extends JpaRepository <vehiculo, Long> {
 	List<vehiculo> findBytipoAndEstado(String tipo, String estado);
 
 	List<vehiculo> findByEstadoAndTipo(String filtro, String tipo);
+	vehiculo findByPlaca(String placa);
 
 	
 	
