@@ -72,21 +72,27 @@ public class alquiler_Controlador {
 
 	@GetMapping("/listaDeAlquileres")
 	public List<alquiler>listarAlquileres(){
-		return alquilerRepositorio.findAll();
+		return alquilerRepositorio.findByEstado("pendiente");
+		
 	}
 	
-	@PutMapping("/cancelarAlquiler")
-	public String cancelarAlquiler(@RequestParam Long id_Alquiler) {
+	@GetMapping("/cancelarAlquiler")
+	public boolean cancelarAlquiler(@RequestParam Long id_Alquiler) {
 		Optional<alquiler> alquilerr = alquilerRepositorio.findById(id_Alquiler);
 		if(alquilerr.isPresent()) {
 			alquiler alquilerExistente = alquilerr.get();
 			alquilerExistente.setEstado("Cancelado");
 			
+			vehiculo vehi = alquilerExistente.getId_vehiculo();
+			
+			vehi.setEstado("disponible");
+			
+			this.vehiculoRepositorio.save(vehi);
 			
 			alquilerRepositorio.save(alquilerExistente);
-			return "Disponible";
+			return true;
 		}
-		return "Error: Alquiler no encontrado.";
+		return false;
 	}
 
 }

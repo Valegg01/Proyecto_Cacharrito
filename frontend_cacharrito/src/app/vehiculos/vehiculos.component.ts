@@ -34,6 +34,8 @@ export class VehiculosComponent implements OnInit{
 
   //alquiler
 
+  id_alq!:number;
+
   placa!:string;
   inicio!:Date;
   ninicio!:string;
@@ -49,7 +51,13 @@ export class VehiculosComponent implements OnInit{
 
   ver_lista(){
     this.seralq.ver_alquileres().subscribe(dato=>{
+
+
       this.alquileres =dato;
+
+
+
+      console.log(this.alquileres)
     })
   }
 
@@ -79,6 +87,9 @@ export class VehiculosComponent implements OnInit{
 
     this.placa=item;
     mod!.style.display='block'
+
+    const eli = document.getElementById("eliminar")
+    eli!.style.display='none'
     
   }
 
@@ -139,7 +150,7 @@ export class VehiculosComponent implements OnInit{
 
     doc.text(`Mi Cacharrito"`,20,10)
     doc.text(`informacion del su alquiler:"`,20,20)
-    doc.text(`id del alquiler = ${this.alquiler.idAlquiler}`,20,30)
+    doc.text(`id del alquiler = ${this.alquiler.id_Alquiler}`,20,30)
     doc.text(`fecha de inicio =${this.alquiler.FechaInicio}`,20,40)
     doc.text(`fecha de final =${this.alquiler.fechaFin}`,20,50)
     /*doc.text(`placa del vehiculo= ${this.alquiler.idVehiculo.placa}`,20,60)
@@ -149,6 +160,22 @@ export class VehiculosComponent implements OnInit{
 
     doc.save(`alquiler_.pdf`)
 
+
+  }
+
+  eliminar_alquiler(){
+
+    this.seralq.eliminar(this.id_alq).subscribe(dato =>{
+
+      if(dato==true){
+        alert("el alquiler fue eliminado con exito")
+        window.location.reload()
+      }else{
+        alert("no se logro eliminar el alquiler")
+      }
+    }, (error)=>{
+      alert("error de respuesta del servidor, intentelo mas tarde")
+    })
 
   }
 

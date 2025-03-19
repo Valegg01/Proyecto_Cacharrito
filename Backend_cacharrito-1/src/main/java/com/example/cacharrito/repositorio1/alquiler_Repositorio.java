@@ -12,4 +12,6 @@ public interface alquiler_Repositorio extends JpaRepository <alquiler, Long>{
 
 	List<alquiler>findByidUsuario(usuario idUsuario);
 
+	List<alquiler> findByEstado(String string);
+
 }

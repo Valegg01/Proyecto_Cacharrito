@@ -18,4 +18,10 @@ export class AlquilerService {
 
        return this.httpClient.get(`http://localhost:8080/alquiler/listaDeAlquileres`)
     }
+
+    
+    eliminar(id:number):Observable<any>{
+
+      return this.httpClient.get(`http://localhost:8080/alquiler/cancelarAlquiler?id_Alquiler=${id}`)
+   }
 }

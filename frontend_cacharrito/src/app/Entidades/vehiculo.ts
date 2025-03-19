@@ -1,5 +1,5 @@
 export class Vehiculo{
-    id_vehiculo!:number;
+    id_Vehiculo!:number;
     tipo!:string;
     placa!:string;
     color!:string;

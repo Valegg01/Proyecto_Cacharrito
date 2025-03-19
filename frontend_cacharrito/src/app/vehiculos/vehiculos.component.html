@@ -46,14 +46,19 @@
 
     </div>
 
-    <div id="elimina">
+    <div id="eliminar">
+      <p></p>
+
+      <h4>eliminar uno de mis alquileres</h4>
 
       <div class="input-group mb-3">
         <label class="input-group-text" for="inputGroupSelect01">Seleccionar un alquiler</label>
-        <select  class="form-select" id="inputGroupSelect01" [(ngModel)]="Tipo" name="Tipo" >
+        <select  class="form-select" id="inputGroupSelect01" [(ngModel)]="id_alq" name="Tipo" >
           <option selected>Seleccionar</option>
-          <option *ngFor="let item of alquileres" [value]="item.idAlquiler" >{{item.idAlquiler}}. vehiculo con placa </option>
+          <option *ngFor="let item of alquileres" [value]="item.id_Alquiler" >{{item.id_Alquiler}}. vehiculo con placa :</option>
         </select>
+      
+      <button (click)="eliminar_alquiler()">Eliminar alquiler</button>
     </div>
 
     </div>
