@@ -13,4 +13,9 @@ export class AlquilerService {
       return this.httpClient.get(`http://localhost:8080/alquiler/registrar?placa=${placa}&inicio=${fi}&final=${ff}&cedula=${cc}&valor=${valor}`)
   
     }
+
+    ver_alquileres():Observable<any>{
+
+       return this.httpClient.get(`http://localhost:8080/alquiler/listaDeAlquileres`)
+    }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ServicioVehiculoService } from '../servicios/servicio-vehiculo.service';
 import { FormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -18,10 +18,14 @@ import jsPDF from 'jspdf';
   templateUrl: './vehiculos.component.html',
   styleUrl: './vehiculos.component.css'
 })
-export class VehiculosComponent {
+export class VehiculosComponent implements OnInit{
   
   daysDifference: any;
   constructor(private serveh:ServicioVehiculoService, private datepipe:DatePipe, private seralq: AlquilerService){}
+
+  ngOnInit(): void {
+    this.ver_lista()
+  }
 
   Tipo!: string;
 
@@ -40,6 +44,14 @@ export class VehiculosComponent {
   valor!:number
 
   alquiler: Alquiler= new Alquiler;
+
+  alquileres!: Alquiler[];
+
+  ver_lista(){
+    this.seralq.ver_alquileres().subscribe(dato=>{
+      this.alquileres =dato;
+    })
+  }
 
   buscar_tipo(){
 
